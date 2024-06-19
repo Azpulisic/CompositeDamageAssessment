@@ -1,0 +1,36 @@
+toolbar start CompositeDamageAssessment
+toolbar initialsize 300 300
+toolbar minmaxbuttons off
+toolbar vravailable
+toolbar subgroup Read results
+toolbar filetext Geometry tip="Select geometry file" < >:
+toolbar filterfiletext .k ( *.k )
+toolbar button Read Geometry and Results File:script execute "GUI.py::LoadGeometry()"
+toolbar aligntextmid
+toolbar endgroup
+toolbar spacer Spacer 1:
+toolbar subgroup Results visualization
+toolbar hsubgroup 
+toolbar subgrflat
+toolbar button Enter VR Mode:script execute "VR.py::StartVR()"
+toolbar aligntextmid
+toolbar button Exit VR Mode:script execute "VR.py::CloseVR()"
+toolbar aligntextmid
+toolbar endgroup
+toolbar ctext Stresses&Strain:
+toolbar historytext Stresses&Strain :Stress-Normal-X(GCS)
+toolbar button Read:script execute "VR.py::ReadStress()"
+toolbar aligntextmid
+toolbar button read4state:script execute "DamageAssess.py::CopyFailure4State()"
+toolbar aligntextmid
+toolbar button Calculate Area of Failed Elements:script execute "DamageAssess.py::CalElemArea()"
+toolbar aligntextmid
+toolbar button Calculate Area of Cohe Failed Elements:script execute "DamageAssess.py::CalCoheElemArea()"
+toolbar aligntextmid
+toolbar endgroup
+toolbar spacer Spacer 2:
+toolbar relativesize 3
+toolbar ctext Specify criteria:
+toolbar historytext Specify criteria :Chang-Chang|Tsai-Wu|Hashin|test
+toolbar button Assess:script execute "GUI.py::Assess()"
+toolbar aligntextmid
